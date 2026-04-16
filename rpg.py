@@ -4,3 +4,6 @@ class Personaje:
         self.nivel = 1
         self.esta_vivo = True
 
+    def atacar(self, objetivo, dano):
+        objetivo.hp -= dano
+
