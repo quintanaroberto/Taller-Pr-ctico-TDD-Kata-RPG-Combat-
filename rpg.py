@@ -12,3 +12,6 @@ class Personaje:
         if objetivo.hp <= 0:
             objetivo.hp = 0
             objetivo.esta_vivo = False
+
+    def curar(self, objetivo, cantidad):
+        objetivo.hp += cantidad
