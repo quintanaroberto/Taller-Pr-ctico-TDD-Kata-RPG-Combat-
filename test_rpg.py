@@ -49,3 +49,14 @@ def test_no_curar_mas_del_maximo():
     curador.curar(aliado, cantidad=200) # Curar 200 debería topar en 1000
 
     assert aliado.hp == 1000
+
+def test_los_muertos_no_se_curan():
+    curador = Personaje()
+    aliado = Personaje()
+    enemigo = Personaje()
+
+    enemigo.atacar(aliado, dano=1500) # Muere, HP en 0
+    curador.curar(aliado, cantidad=500)
+
+    assert aliado.hp == 0
+    assert aliado.esta_vivo == False
