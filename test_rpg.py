@@ -39,3 +39,13 @@ def test_curar_personaje():
 
     # Verificar
     assert aliado.hp == 900
+
+def test_no_curar_mas_del_maximo():
+    curador = Personaje()
+    aliado = Personaje()
+    enemigo = Personaje()
+
+    enemigo.atacar(aliado, dano=100) # HP baja a 900
+    curador.curar(aliado, cantidad=200) # Curar 200 debería topar en 1000
+
+    assert aliado.hp == 1000
